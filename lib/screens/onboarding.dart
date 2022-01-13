@@ -1,13 +1,10 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hangout_padie/constants.dart';
-import 'package:hangout_padie/screens/sign_up.dart';
-
-import '../widgets/background_container.dart';
+import '../constants.dart';
 
 class Onboarding extends StatefulWidget {
-  static String id = 'onboarding';
+  const Onboarding({Key? key}) : super(key: key);
+
   @override
   _OnboardingState createState() => _OnboardingState();
 }
@@ -36,19 +33,22 @@ class _OnboardingState extends State<Onboarding> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: Icon(
+          leading: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
           actions: [
             GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushReplacementNamed(SignUp.id),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                onTap: () => Navigator.of(context).pushReplacementNamed(
+                      signUpRoute,
+                    ),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     'skip',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ))
           ],
@@ -57,19 +57,23 @@ class _OnboardingState extends State<Onboarding> {
             controller: _pageController,
             itemCount: kOnBoardingItems.length,
             onPageChanged: (index) {
-              setState(() {
-                currentIndex = index;
-              });
+              setState(
+                () => currentIndex = index,
+              );
             },
             itemBuilder: (context, index) {
               return Container(
                 height: MediaQuery.of(context).size.height * 1,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [Color(0xffFFF122), Color(0xffFF5603)],
-                      begin: FractionalOffset.topCenter,
-                      end: FractionalOffset.bottomCenter),
+                    colors: [
+                      Color(0xffFFF122),
+                      Color(0xffFF5603),
+                    ],
+                    begin: FractionalOffset.topCenter,
+                    end: FractionalOffset.bottomCenter,
+                  ),
                 ),
                 // child: Container(
                 //   height: 100,
@@ -95,7 +99,7 @@ class _OnboardingState extends State<Onboarding> {
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.5,
                       //color: Colors.blue,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30),
@@ -111,17 +115,23 @@ class _OnboardingState extends State<Onboarding> {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(kOnBoardingItems.length,
-                                  (index) => buildDot(index)),
+                              children: List.generate(
+                                kOnBoardingItems.length,
+                                (index) => buildDot(index),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.1,
                             ),
                             Text(
                               kOnBoardingItems[currentIndex].displayText,
-                              style: TextStyle(fontSize: 16),
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
                             ),
-                            Expanded(child: SizedBox()),
+                            const Expanded(
+                              child: SizedBox(),
+                            ),
                             Container(
                               alignment: Alignment.bottomRight,
                               child: currentIndex < kOnBoardingItems.length - 1
@@ -132,32 +142,40 @@ class _OnboardingState extends State<Onboarding> {
                                           currentIndex = currentIndex + 1;
                                         });
                                         _pageController.nextPage(
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.bounceIn);
+                                          duration: const Duration(
+                                            milliseconds: 100,
+                                          ),
+                                          curve: Curves.bounceIn,
+                                        );
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'Next',
                                         style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
                                       ))
                                   : GestureDetector(
                                       onTap: () =>
                                           Navigator.pushReplacementNamed(
-                                              context, SignUp.id),
+                                        context,
+                                        signUpRoute,
+                                      ),
                                       child: Material(
                                         elevation: 5,
                                         borderRadius: BorderRadius.circular(15),
-                                        color: Color(0xff320104),
+                                        color: const Color(
+                                          0xff320104,
+                                        ),
                                         child: Container(
                                           height: 50,
                                           width: double.infinity,
-                                          child: Center(
+                                          child: const Center(
                                             child: Text(
                                               'Continue',
                                               style: TextStyle(
-                                                  color: Colors.white),
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -181,11 +199,13 @@ class _OnboardingState extends State<Onboarding> {
 
   Container buildDot(int i) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 7),
+      margin: const EdgeInsets.symmetric(horizontal: 7),
       height: 10,
       width: 10,
       decoration: BoxDecoration(
-        color: i == currentIndex ? Color(0xffF90716) : Color(0xffFF9C11),
+        color: i == currentIndex
+            ? const Color(0xffF90716)
+            : const Color(0xffFF9C11),
         borderRadius: BorderRadius.circular(15),
       ),
     );

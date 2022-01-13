@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/widgets/custom_bottom_nav_bar.dart';
+import '../widgets/widgets.dart';
 import '../constants.dart';
-import './onboarding.dart';
 
 class SelectLocation extends StatelessWidget {
-  static String id = 'SelectLocation';
+  const SelectLocation({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: Icon(Icons.arrow_back_ios, color: Colors.black)),
-        title: Text(
+          onTap: () => Navigator.of(context).pop(),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
+        title: const Text(
           'Welcome',
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed(Onboarding.id);
+              Navigator.of(context).pushReplacementNamed(
+                onboardingRoute,
+              );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Color(0xff6C6E6D),
               size: 30,
@@ -37,7 +46,12 @@ class SelectLocation extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 1,
           width: double.infinity,
           child: Padding(
-            padding: EdgeInsets.only(left: 30, top: 60, right: 30, bottom: 15),
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 60,
+              right: 30,
+              bottom: 15,
+            ),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Container(
@@ -51,12 +65,14 @@ class SelectLocation extends StatelessWidget {
                             'LOCATION',
                             style: kHomeHeadersStyle,
                           ),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                            width: 2,
-                            color: Color(0xFFFFAC82),
-                          ))),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                width: 2,
+                                color: Color(0xFFFFAC82),
+                              ),
+                            ),
+                          ),
                         ),
                         // Divider(
 
@@ -65,18 +81,30 @@ class SelectLocation extends StatelessWidget {
                         // )
                       ],
                     ),
-                    Text('EVENT', style: kHomeHeadersStyle),
-                    Text('CATEGORIES', style: kHomeHeadersStyle),
+                    Text(
+                      'EVENT',
+                      style: kHomeHeadersStyle,
+                    ),
+                    Text(
+                      'CATEGORIES',
+                      style: kHomeHeadersStyle,
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(
+                height: 25,
+              ),
               Container(
                   width: double.infinity,
                   alignment: Alignment.center,
-                  child: Text('Please select your location',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20),)),
+                  child: const Text(
+                    'Please select your location',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  )),
             ]),
           ),
         ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import '../screens/home.dart';
+import '../constants.dart';
 
 class AuthenticationForm extends StatefulWidget {
-  bool register;
+  final bool register;
 
-  AuthenticationForm({
+  const AuthenticationForm({
     required this.register,
-  });
+    Key? key,
+  }) : super(key: key);
+
   @override
   _AuthenticationFormState createState() => _AuthenticationFormState();
 }
@@ -20,40 +22,49 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
       key: _formKey,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         widget.register
-            ? Text(
+            ? const Text(
                 'Full Name',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(
+                  fontSize: 12,
+                ),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         widget.register
-            ? SizedBox(
+            ? const SizedBox(
                 height: 5,
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         widget.register
             ? Material(
                 elevation: 5,
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.white,
                 child: TextFormField(
-                  style: TextStyle(fontSize: 18),
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                  ),
                 ),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         widget.register == true
-            ? SizedBox(
+            ? const SizedBox(
                 height: 23,
               )
-            : SizedBox.shrink(),
-        Text(
+            : const SizedBox.shrink(),
+        const Text(
           'Email Address',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(
+            fontSize: 12,
+          ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Material(
@@ -61,21 +72,28 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
           child: TextFormField(
-            style: TextStyle(fontSize: 18),
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 10,
+              ),
+            ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 23,
         ),
-        Text(
+        const Text(
           'Password',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(
+            fontSize: 12,
+          ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Material(
@@ -83,40 +101,48 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
           child: TextFormField(
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(
+              fontSize: 18,
+            ),
             obscureText: _passwordVisibility,
             decoration: InputDecoration(
-                border: InputBorder.none,
-                suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _passwordVisibility = !_passwordVisibility;
-                      });
-                    },
-                    child: Icon(_passwordVisibility
-                        ? Icons.visibility_off
-                        : Icons.visibility)),
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+              border: InputBorder.none,
+              suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _passwordVisibility = !_passwordVisibility;
+                    });
+                  },
+                  child: Icon(_passwordVisibility
+                      ? Icons.visibility_off
+                      : Icons.visibility)),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 10,
+              ),
+            ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         GestureDetector(
-          onTap: () => Navigator.of(context).pushReplacementNamed(Home.id),
+          onTap: () => Navigator.of(context).pushReplacementNamed(
+            homeRoute,
+          ),
           child: Material(
-          
             elevation: 5,
             borderRadius: BorderRadius.circular(15),
-            color: Color(0xff320104),
+            color: const Color(0xff320104),
             child: Container(
               height: 50,
               width: double.infinity,
               child: Center(
                 child: Text(
                   widget.register ? 'Sign Up' : 'Login',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

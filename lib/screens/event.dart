@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../widgets/custom_bottom_nav_bar.dart';
-import '../widgets/home_sections.dart';
-import './onboarding.dart';
-import './select_location.dart';
+import '../widgets/widgets.dart';
 import '../constants.dart';
 
 class Event extends StatelessWidget {
-  static String id = 'Event';
+  const Event({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +11,27 @@ class Event extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: Icon(Icons.arrow_back_ios, color: Colors.black)),
-        title: Text(
+          onTap: () => Navigator.of(context).pop(),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
+        title: const Text(
           'Welcome',
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed(Onboarding.id);
+              Navigator.of(context).pushReplacementNamed(
+                onboardingRoute,
+              );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Color(0xff6C6E6D),
               size: 30,
@@ -41,7 +46,12 @@ class Event extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 1,
           width: double.infinity,
           child: Padding(
-            padding: EdgeInsets.only(left: 30, top: 60, right: 30, bottom: 15),
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 60,
+              right: 30,
+              bottom: 15,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -60,11 +70,13 @@ class Event extends StatelessWidget {
                               'EVENT',
                               style: kHomeHeadersStyle,
                             ),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 border: Border(
                                     bottom: BorderSide(
                               width: 2,
-                              color: Color(0xFFFFAC82),
+                              color: Color(
+                                0xFFFFAC82,
+                              ),
                             ))),
                           ),
                           // Divider(
@@ -78,7 +90,9 @@ class Event extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
+                const SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -86,19 +100,25 @@ class Event extends StatelessWidget {
                       'Top Hangout Spots',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text(
+                    const Text(
                       'view all',
-                      style: TextStyle(color: Color(0xFFFFAC82)),
+                      style: TextStyle(
+                        color: Color(
+                          0xFFFFAC82,
+                        ),
+                      ),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 HomeSections(
                   list: kTopHangoutSpots,
                 ),
-                SizedBox(height: 25),
+                const SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -106,10 +126,17 @@ class Event extends StatelessWidget {
                       'Recomedations',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text('view all', style: TextStyle(color: Color(0xFFFFAC82)))
+                    const Text(
+                      'view all',
+                      style: TextStyle(
+                        color: Color(
+                          0xFFFFAC82,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 HomeSections(

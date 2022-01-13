@@ -1,28 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
-import './screens/sign_up.dart';
-import './screens/login.dart';
-import './screens/home.dart';
-import './screens/onboarding.dart';
-import './screens/select_location.dart';
-import './screens/event.dart';
+import './screens/screens.dart';
+import 'constants.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Onboarding.id,
-      routes: {
-        SignUp.id: (context) => SignUp(),
-        Login.id: (context) => Login(),
-        Onboarding.id: (context) => Onboarding(),
-Home.id: (context)=>Home(),
-SelectLocation.id: (context) => SelectLocation(),
-Event.id: (context) => Event(),
-      },
+      routes: _routes(),
     );
   }
+
+  Map<String, Widget Function(BuildContext)> _routes() => {
+        defaultRoute: (context) => const Onboarding(),
+        signUpRoute: (context) => const SignUp(),
+        loginRoute: (context) => const Login(),
+        onboardingRoute: (context) => const Onboarding(),
+        homeRoute: (context) => const Home(),
+        selectLocationRoute: (context) => const SelectLocation(),
+        eventRoute: (context) => const Event(),
+      };
 }

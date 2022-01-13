@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({Key? key}) : super(key: key);
+
   @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
+  _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
@@ -11,24 +13,30 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Material(
         elevation: 0,
         child: Container(
           decoration: BoxDecoration(
-              color: Color(0xFFEFEDEA),
+              color: const Color(0xFFEFEDEA),
               borderRadius: BorderRadius.circular(15)),
           width: double.infinity,
           height: 60,
           alignment: Alignment.center,
           child: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
             scrollDirection: Axis.horizontal,
             itemCount: kNavMenue.length,
             itemBuilder: (context, index) {
               return AnimatedContainer(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                duration: Duration(microseconds: 300),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                duration: const Duration(
+                  microseconds: 300,
+                ),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
@@ -39,8 +47,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     kNavMenue[index],
                     size: 30,
                     color: index == navIndex
-                        ? Color(0xffFF5403)
-                        : Color(0xffF4BFA5),
+                        ? const Color(0xffFF5403)
+                        : const Color(0xffF4BFA5),
                   ),
                 ),
               );

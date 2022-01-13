@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BackgroundContainer extends StatelessWidget {
-  Widget? child;
+  final Widget? child;
 
-  BackgroundContainer({
+  const BackgroundContainer({
     this.child,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,13 @@ class BackgroundContainer extends StatelessWidget {
       width: double.infinity,
 
       //color: Colors.blue,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          color: Colors.white),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+        color: Colors.white,
+      ),
       child: child,
     );
   }

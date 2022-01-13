@@ -1,38 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/constants.dart';
-import 'package:hangout_padie/screens/onboarding.dart';
-import 'package:hangout_padie/widgets/custom_bottom_nav_bar.dart';
-import '../widgets/background_container.dart';
-import '../widgets/home_sections.dart';
-import './select_location.dart';
-import './event.dart';
+import '../constants.dart';
+import '../widgets/widgets.dart';
 
 class Home extends StatefulWidget {
-  static String id = 'Home';
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Welcome',
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed(Onboarding.id);
+              Navigator.of(context).pushReplacementNamed(
+                onboardingRoute,
+              );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
-              color: Color(0xff6C6E6D),
+              color: Color(
+                0xff6C6E6D,
+              ),
               size: 30,
             ),
           ),
@@ -45,7 +46,12 @@ class _HomeState extends State<Home> {
           height: MediaQuery.of(context).size.height * 1,
           width: double.infinity,
           child: Padding(
-            padding: EdgeInsets.only(left: 30, top: 60, right: 30, bottom: 15),
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 60,
+              right: 30,
+              bottom: 15,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -54,24 +60,33 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       GestureDetector(
-                        onTap: ()=>Navigator.of(context).pushNamed(SelectLocation.id),
+                        onTap: () => Navigator.of(context).pushNamed(
+                          selectLocationRoute,
+                        ),
                         child: Text(
                           'LOCATION',
                           style: kHomeHeadersStyle,
                         ),
                       ),
                       GestureDetector(
-                        onTap: ()=>Navigator.of(context).pushNamed(Event.id),
+                        onTap: () => Navigator.of(context).pushNamed(
+                          eventRoute,
+                        ),
                         child: Text(
                           'EVENT',
                           style: kHomeHeadersStyle,
                         ),
                       ),
-                      Text('CATEGORIES', style: kHomeHeadersStyle),
+                      Text(
+                        'CATEGORIES',
+                        style: kHomeHeadersStyle,
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
+                const SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -79,19 +94,25 @@ class _HomeState extends State<Home> {
                       'Top Hangout Spots',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text(
+                    const Text(
                       'view all',
-                      style: TextStyle(color: Color(0xFFFFAC82)),
+                      style: TextStyle(
+                        color: Color(
+                          0xFFFFAC82,
+                        ),
+                      ),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 HomeSections(
                   list: kTopHangoutSpots,
                 ),
-                SizedBox(height: 25),
+                const SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -99,10 +120,17 @@ class _HomeState extends State<Home> {
                       'Recomedations',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text('view all', style: TextStyle(color: Color(0xFFFFAC82)))
+                    const Text(
+                      'view all',
+                      style: TextStyle(
+                        color: Color(
+                          0xFFFFAC82,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 HomeSections(

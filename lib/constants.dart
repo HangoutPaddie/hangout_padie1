@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
-import './model/onboarding_model.dart';
-import './model/top_hangout_spots.dart';
+import './models/models.dart';
+
+// instead of screen ids call them routes and they should be here instead. They are constants too
+const defaultRoute = '/';
+const eventRoute = '/event';
+const homeRoute = '/home';
+const loginRoute = '/login';
+const onboardingRoute = '/onboarding';
+const selectLocationRoute = '/selectLocation';
+const signUpRoute = '/signUp';
 
 List<OnboardingModel> kOnBoardingItems = [
   OnboardingModel(
@@ -19,27 +27,27 @@ List<OnboardingModel> kOnBoardingItems = [
 
 List<TopHangoutSpots> kTopHangoutSpots = [
   TopHangoutSpots(
-      State: 'Lagos State',
+      state: 'Lagos State',
       image: 'assets/images/sailor.png',
       location: 'Sailor\'s Lounge ',
       rating: 4),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/art_cafe.png',
       location: 'Golden Valley',
       rating: 5),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/sailor.png',
       location: 'Golden Valley',
       rating: 4),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/art_cafe.png',
       location: 'Golden Valley',
       rating: 2),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/sailor.png',
       location: 'Golden Valley',
       rating: 3)
@@ -47,39 +55,46 @@ List<TopHangoutSpots> kTopHangoutSpots = [
 
 List<TopHangoutSpots> kRecommendation = [
   TopHangoutSpots(
-      State: 'Lagos State',
+      state: 'Lagos State',
       image: 'assets/images/bay.png',
       location: 'Sailor\'s Lounge ',
       rating: 4),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/hard_rock_cafe.png',
       location: 'Golden Valley',
       rating: 4),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/bay.png',
       location: 'Golden Valley',
       rating: 4),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/hard_rock_cafe.png',
       location: 'Golden Valley',
       rating: 3),
   TopHangoutSpots(
-      State: 'Enugu',
+      state: 'Enugu',
       image: 'assets/images/bay.png',
       location: 'Golden Valley',
       rating: 4)
 ];
 
- List kNavMenue = [
-    Icons.home_rounded,
-    Icons.call_outlined,
-    Icons.calendar_today_outlined,
-    Icons.account_box_outlined
-  ];
+List kNavMenue = [
+  Icons.home_rounded,
+  Icons.call_outlined,
+  Icons.calendar_today_outlined,
+  Icons.account_box_outlined
+];
 
-var kHomeHeadersStyle = TextStyle(fontSize: 18, color: Color(0xff110201));
-var kHomeSectionHeaderStyle =
-    TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
+var kHomeHeadersStyle = const TextStyle(
+  fontSize: 18,
+  color: Color(
+    0xff110201,
+  ),
+);
+var kHomeSectionHeaderStyle = const TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.bold,
+);
