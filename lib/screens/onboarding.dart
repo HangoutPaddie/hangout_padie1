@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -83,11 +85,6 @@ class _OnboardingState extends State<Onboarding> {
                 //child: Image(image: AssetImage('assets/images/john_brave.jpg'),),
                 child: Stack(fit: StackFit.loose, children: [
                   Positioned(
-                    child: Image(
-                      image: AssetImage(kOnBoardingItems[index].image),
-                    ),
-                  ),
-                  Positioned(
                     bottom: 0,
                     right: 0,
                     left: 0,
@@ -95,12 +92,8 @@ class _OnboardingState extends State<Onboarding> {
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.5,
                       //color: Colors.blue,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
-                          ),
-                          color: Colors.white),
+
+                      color: Colors.white,
                       child: Container(
                         padding: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width * 0.07,
@@ -108,20 +101,24 @@ class _OnboardingState extends State<Onboarding> {
                           right: MediaQuery.of(context).size.width * 0.07,
                         ),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
+                            Expanded(child: SizedBox()),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: List.generate(kOnBoardingItems.length,
                                   (index) => buildDot(index)),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.1,
+                              height: MediaQuery.of(context).size.height * 0.07,
                             ),
                             Text(
                               kOnBoardingItems[currentIndex].displayText,
                               style: TextStyle(fontSize: 16),
                             ),
-                            Expanded(child: SizedBox()),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
                             Container(
                               alignment: Alignment.bottomRight,
                               child: currentIndex < kOnBoardingItems.length - 1
@@ -165,15 +162,23 @@ class _OnboardingState extends State<Onboarding> {
                                     ),
                             ),
                             SizedBox(
-                              height: currentIndex < kOnBoardingItems.length - 1
-                                  ? MediaQuery.of(context).size.height * 0.05
-                                  : MediaQuery.of(context).size.height * 0.09,
-                            )
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05)
                           ],
                         ),
                       ),
                     ),
                   ),
+                  Positioned(
+                      child: ClipPath(
+                    clipper: WaveClipper(),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(kOnBoardingItems[index].image),
+                              fit: BoxFit.cover)),
+                    ),
+                  )),
                 ]),
               );
             }));
@@ -189,6 +194,41 @@ class _OnboardingState extends State<Onboarding> {
         borderRadius: BorderRadius.circular(15),
       ),
     );
+  }
+}
+
+class WaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    debugPrint(size.width.toString());
+    var path = Path();
+    // path.lineTo(0, size.height - 250);
+    // var firstStart = Offset(size.width / 3, size.height -170);
+    // var firstEnd = Offset(size.width / 2.35, size.height - 180);
+    // path.quadraticBezierTo(
+    //     firstStart.dx, firstStart.dy, firstEnd.dx, firstEnd.dy);
+
+    // var secondStart =
+    //     Offset(size.width - (size.width / 5), size.height -200 );
+    // var secondEnd = Offset(size.width , size.height -300);
+    // path.quadraticBezierTo(
+    //     secondStart.dx, secondStart.dy, secondEnd.dx, secondEnd.dy);
+    // path.lineTo(size.width, 0);
+
+    path.lineTo(0, size.height - 300);
+    var controlPoint = Offset((size.width / 2) * 1.7, size.height - 100);
+    var endpoint = Offset(size.width, size.height - 300);
+    path.quadraticBezierTo(
+        controlPoint.dx, controlPoint.dy, endpoint.dx, endpoint.dy);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    //TODO: implement shouldReclip
+    return true;
   }
 }
 // GestureDetector(

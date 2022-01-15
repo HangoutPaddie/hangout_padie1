@@ -73,13 +73,14 @@ List<TopHangoutSpots> kRecommendation = [
       rating: 4)
 ];
 
- List kNavMenue = [
-    Icons.home_rounded,
-    Icons.call_outlined,
-    Icons.calendar_today_outlined,
-    Icons.account_box_outlined
-  ];
+List kNavMenue = [
+  Icons.home_rounded,
+  Icons.call_outlined,
+  Icons.calendar_today_outlined,
+  Icons.account_box_outlined
+];
 
 var kHomeHeadersStyle = TextStyle(fontSize: 18, color: Color(0xff110201));
 var kHomeSectionHeaderStyle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
+var kTextFieldTitleStyle = TextStyle(fontSize: 13, color: Colors.white);

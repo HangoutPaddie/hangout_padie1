@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hangout_padie/constants.dart';
+import 'package:hangout_padie/model/user_model.dart';
 import 'package:hangout_padie/screens/onboarding.dart';
 import 'package:hangout_padie/widgets/custom_bottom_nav_bar.dart';
 import '../widgets/background_container.dart';
@@ -10,19 +11,21 @@ import './event.dart';
 class Home extends StatefulWidget {
   static String id = 'Home';
 
+  UserModel user;
+  Home({required this.user});
+
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
-          'Welcome',
+          'Welcome ${widget.user.userFirstName}',
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),
         actions: [
@@ -54,14 +57,15 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       GestureDetector(
-                        onTap: ()=>Navigator.of(context).pushNamed(SelectLocation.id),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed(SelectLocation.id),
                         child: Text(
                           'LOCATION',
                           style: kHomeHeadersStyle,
                         ),
                       ),
                       GestureDetector(
-                        onTap: ()=>Navigator.of(context).pushNamed(Event.id),
+                        onTap: () => Navigator.of(context).pushNamed(Event.id),
                         child: Text(
                           'EVENT',
                           style: kHomeHeadersStyle,
