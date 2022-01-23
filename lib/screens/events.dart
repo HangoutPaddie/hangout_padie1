@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hangout_padie/widgets/event_section.dart';
+import 'package:hangout_padie/widgets/home_sections.dart';
 
-import '../widgets/custom_bottom_nav_bar.dart';
-import '../widgets/home_sections.dart';
 import './onboarding.dart';
-import './select_location.dart';
 import '../constants.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 
-class Event extends StatelessWidget {
+class Events extends StatelessWidget {
   static String id = 'Event';
 
   @override
@@ -28,7 +28,7 @@ class Event extends StatelessWidget {
             },
             icon: Icon(
               Icons.search,
-              color: Color(0xff6C6E6D),
+              color: Color(0xff6c6e6d),
               size: 30,
             ),
           ),
@@ -83,37 +83,50 @@ class Event extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Top Hangout Spots',
+                      'Carnival',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text(
-                      'view all',
-                      style: TextStyle(color: Color(0xFFFFAC82)),
+                    CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Color(0xFFFFAC82),
+                      child: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     )
                   ],
                 ),
                 SizedBox(
                   height: 15,
                 ),
-                HomeSections(
-                  list: kTopHangoutSpots,
+                EventSection(
+                  list: kCarnival,
                 ),
                 SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Recomedations',
+                      'Comedy Shows',
                       style: kHomeSectionHeaderStyle,
                     ),
-                    Text('view all', style: TextStyle(color: Color(0xFFFFAC82)))
+                    CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Color(0xFFFFAC82),
+                      child: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
                   height: 15,
                 ),
-                HomeSections(
-                  list: kRecommendation,
+                EventSection(
+                  list: kComedy_shows,
                 ),
               ],
             ),

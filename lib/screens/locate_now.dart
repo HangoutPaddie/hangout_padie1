@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hangout_padie/widgets/registration_botton.dart';
 
-class LocateNow extends StatelessWidget {
+class LocateNow extends StatefulWidget {
   static String id = 'Locate_Now';
 
+  double latitude;
+  double longitude;
+  String address;
+  LocateNow(
+      {required this.latitude, required this.longitude, required this.address});
+
+  @override
+  State<LocateNow> createState() => _LocateNowState();
+}
+
+class _LocateNowState extends State<LocateNow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,28 +45,32 @@ class LocateNow extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   Text(
-                    'SNO, 24, Gift Anita Street, Ayodeji,',
+                    widget.address,
                     style: TextStyle(fontSize: 15),
                   ),
-                  Text(
-                    'Lagos State',
-                    style: TextStyle(fontSize: 15),
-                  )
                 ],
               ),
             ),
           ),
           Container(
-              child: Image(
-            image: AssetImage('assets/images/background_image.png'),
-          )),
+            height: MediaQuery.of(context).size.height * 000.5,
+            width: double.infinity,
+            child: GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: LatLng(widget.latitude, widget.longitude),
+                zoom: 20,
+              ),
+              //mapType: MapType.normal,
+            ),
+          ),
           SizedBox(
             height: 20,
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: RegisterButton(
-                title: "LOCATE NOW", icon: FontAwesomeIcons.locationArrow),
+                title: Text("LOCATE NOW"),
+                icon: FontAwesomeIcons.locationArrow),
           ),
         ],
       ),

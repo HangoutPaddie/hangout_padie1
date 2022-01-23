@@ -1,17 +1,32 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hangout_padie/model/user_model.dart';
-import 'package:hangout_padie/screens/home.dart';
+import 'package:hangout_padie/screens/welcome.dart';
 import 'package:hangout_padie/screens/sign_up.dart';
 import '../widgets/authentication_form.dart';
 import '../widgets/background_container.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   static String id = 'Login';
 
-  void submit(String fName, String lName, String email, String password,
-      BuildContext ctx) async {
-    String url = 'http://api.hangoutpadie.com/login/';
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool loading = false;
+
+  void submit(
+    String fName,
+    String lName,
+    String email,
+    String password,
+    BuildContext ctx,
+  ) async {
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/login/';
     var dio = Dio();
     final sendData = {
       'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
@@ -32,8 +47,24 @@ class Login extends StatelessWidget {
           userMail: userMail,
           userFirstName: userFirstName,
           userLastName: userLastName);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('You are successfully logged in'),
+          duration: Duration(seconds: 5),
+          //action: SnackBarAction(label: 'OK',onPressed: () => ,),
+        ),
+      );
+      await Future.delayed(Duration(seconds: 2));
       Navigator.of(ctx).pushReplacement(
-          MaterialPageRoute(builder: (_) => Home(user: _user)));
+          MaterialPageRoute(builder: (_) => Welcome(user: _user)));
+      setState(() {
+        loading = false;
+      });
+    } else {
+      print(response.statusCode);
+      setState(() {
+        loading = false;
+      });
     }
 
     //dio.post(path)
@@ -92,6 +123,8 @@ class Login extends StatelessWidget {
                     AuthenticationForm(
                       register: false,
                       submit: submit,
+                      loading: loading,
+                      resetPassword: resetPassword,
                     ),
                     SizedBox(
                       height: 30,
@@ -104,5 +137,43 @@ class Login extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  resetPassword(String fName, String lName, String email, String passwword,
+      BuildContext context) async {
+    FocusScope.of(context).unfocus();
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/reset_password/';
+    var dio = Dio();
+    final sendData = {
+      'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
+      "email_address": email,
+    };
+    Response response = await dio.post(url, data: sendData);
+    if (response.statusCode == 200) {
+      final body = response.data;
+
+      print(body['status']);
+
+      setState(() {
+        loading = false;
+      });
+      String text = 'some text';
+      //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Kindly check $email for a reset password link'),
+          duration: Duration(seconds: 5),
+          //action: SnackBarAction(label: 'OK',onPressed: () => ,),
+        ),
+      );
+    } else {
+      print(response.statusCode);
+      setState(() {
+        loading = false;
+      });
+    }
   }
 }

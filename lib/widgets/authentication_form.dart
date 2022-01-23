@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hangout_padie/constants.dart';
 import 'package:hangout_padie/screens/login.dart';
 import 'package:hangout_padie/screens/sign_up.dart';
-import '../screens/home.dart';
+import '../screens/welcome.dart';
 import './registration_botton.dart';
 
 class AuthenticationForm extends StatefulWidget {
@@ -15,10 +15,22 @@ class AuthenticationForm extends StatefulWidget {
     String lName,
     String email,
     String passwword,
-    BuildContext context
+    BuildContext context,
   ) submit;
+  bool loading;
+  Function(
+    String fName,
+    String lName,
+    String email,
+    String passwword,
+    BuildContext context,
+  )? resetPassword;
 
-  AuthenticationForm({required this.register, required this.submit});
+  AuthenticationForm(
+      {required this.register,
+      required this.submit,
+      required this.loading,
+      this.resetPassword});
 
   @override
   _AuthenticationFormState createState() => _AuthenticationFormState();
@@ -33,9 +45,14 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   TextEditingController lNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  //bool loading = false;
 
   void submit() {
     var myForm = _formKey.currentState;
+    FocusScope.of(context).unfocus();
+    setState(() {
+      widget.loading = true;
+    });
     if (myForm!.validate()) {
       myForm.save();
 
@@ -45,8 +62,16 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
       // print(passwordController.text);
     }
 
-    widget.submit(fNameController.text, lNameController.text,
-        emailController.text, passwordController.text, context);
+    widget.submit(
+      fNameController.text,
+      lNameController.text,
+      emailController.text,
+      passwordController.text,
+      context,
+    );
+    setState(() {
+      widget.loading = false;
+    });
   }
 
   @override
@@ -69,6 +94,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 borderRadius: BorderRadius.circular(15),
                 //color: Colors.white,
                 child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.name,
                   onSaved: (newValue) => fName = newValue!,
                   validator: (value) =>
                       value!.isEmpty ? 'Enter First Name' : null,
@@ -95,6 +122,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 borderRadius: BorderRadius.circular(15),
                 //color: Colors.white,
                 child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.name,
                   validator: (value) =>
                       value!.isEmpty ? 'Enter Last Name' : null,
                   controller: lNameController,
@@ -121,13 +150,16 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
               borderRadius: BorderRadius.circular(15),
               //color: Colors.white,
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
                 validator: (value) => value!.isEmpty ? 'Enter an email' : null,
                 controller: emailController,
                 style: TextStyle(fontSize: 18),
                 decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+                  border: InputBorder.none,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                ),
               ),
             ),
             SizedBox(
@@ -145,6 +177,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
               borderRadius: BorderRadius.circular(15),
               //color: Colors.white,
               child: TextFormField(
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.done,
                 controller: passwordController,
                 validator: (value) => value!.isEmpty ? 'Enter password' : null,
                 style: TextStyle(fontSize: 18),
@@ -169,6 +203,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             ),
             if (!widget.register)
               GestureDetector(
+                  onTap: resetPassword,
                   child: Container(
                       child: Text('Forgot password?',
                           style: (TextStyle(color: Colors.white))),
@@ -178,24 +213,28 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
               SizedBox(
                 height: 40,
               ),
-            GestureDetector(
-              onTap: submit,
-              child: Material(
-                elevation: 5,
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0XFFFF5403),
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  child: Center(
-                    child: Text(
-                      widget.register ? 'SIGN UP' : 'LOGIN',
-                      style: TextStyle(color: Colors.white),
+            widget.loading
+                ? Container(
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator())
+                : GestureDetector(
+                    onTap: submit,
+                    child: Material(
+                      elevation: 5,
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color(0XFFFF5403),
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        child: Center(
+                          child: Text(
+                            widget.register ? 'SIGN UP' : 'LOGIN',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
             SizedBox(
               height: 20,
             ),
@@ -234,19 +273,33 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 )),
             widget.register ? SizedBox(height: 20) : SizedBox(height: 40),
             RegisterButton(
-              title: 'SIGN UP WITH GOOGLE',
+              title: Text('SIGN UP WITH GOOGLE'),
               icon: FontAwesomeIcons.google,
             ),
             SizedBox(
               height: 15,
             ),
             RegisterButton(
-              title: 'SIGN UP WITH APPLE',
+              title: Text('SIGN UP WITH APPLE'),
               icon: FontAwesomeIcons.apple,
             ),
           ]),
         ),
       ),
     );
+  }
+
+  void resetPassword() {
+    if (emailController.text.isEmpty) {
+      _formKey.currentState!.validate();
+    } else {
+      widget.resetPassword!(
+        fNameController.text,
+        lNameController.text,
+        emailController.text,
+        passwordController.text,
+        context,
+      );
+    }
   }
 }

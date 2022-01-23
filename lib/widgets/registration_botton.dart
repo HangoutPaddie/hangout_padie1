@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../screens/home.dart';
+import '../screens/welcome.dart';
 
 class RegisterButton extends StatelessWidget {
-  String title;
+  Widget title;
   IconData? icon;
   RegisterButton({
     required this.title,
@@ -26,10 +26,7 @@ class RegisterButton extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    title,
-                    style: TextStyle(color: Colors.black),
-                  ),
+                  title,
                   SizedBox(
                     width: 20,
                   ),

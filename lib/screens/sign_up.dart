@@ -2,17 +2,31 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hangout_padie/model/user_model.dart';
-import 'package:hangout_padie/screens/home.dart';
+import 'package:hangout_padie/screens/welcome.dart';
 import 'package:hangout_padie/screens/login.dart';
 import 'package:hangout_padie/widgets/background_container.dart';
 import '../widgets/authentication_form.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   static String id = 'signUp';
 
-  void submit(String fName, String lName, String email, String password,
-      BuildContext ctx) async {
-    String url = 'http://api.hangoutpadie.com/register/';
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  bool loading = false;
+  void submit(
+    String fName,
+    String lName,
+    String email,
+    String password,
+    BuildContext ctx,
+  ) async {
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/register/';
     var dio = Dio();
     final sendData = {
       'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
@@ -22,23 +36,32 @@ class SignUp extends StatelessWidget {
       "password": password
     };
     Response response = await dio.post(url, data: sendData);
-    if (response.statusCode == 200) {
-      final body = response.data;
+    if (response.statusCode == 201) {
+      final body = await response.data;
       String userMail;
       String userFirstName;
       String userLastName;
-      userFirstName = body['data']['user_details']['first_name'];
-      userLastName = body['data']['user_details']['last_name'];
-      userMail = body['data']['user_details']['email_address'];
+      print(body);
+      userFirstName = body['data']['first_name'];
+      userLastName = body['data']['last_name'];
+      userMail = body['data']['email_address'];
       UserModel _user = await UserModel(
           userMail: userMail,
           userFirstName: userFirstName,
           userLastName: userLastName);
       Navigator.of(ctx).pushReplacement(
-          MaterialPageRoute(builder: (_) => Home(user: _user)));
+          MaterialPageRoute(builder: (_) => Welcome(user: _user)));
+      setState(() {
+        loading = false;
+      });
       //print(body['status']);
       // UserModel user = UserModel(userMail: body[], userPassword: userPassword)
 
+    } else {
+      print(response.statusCode);
+      setState(() {
+        loading = false;
+      });
     }
 
     //dio.post(path)
@@ -69,14 +92,13 @@ class SignUp extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 1,
             width: double.infinity,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/background_image.png'),
-                fit: BoxFit.cover,
-                //colorFilter:,
-              ),
-              color: Colors.black,
-              backgroundBlendMode: BlendMode.multiply
-            ),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/background_image.png'),
+                  fit: BoxFit.cover,
+                  //colorFilter:,
+                ),
+                color: Colors.black,
+                backgroundBlendMode: BlendMode.multiply),
             child: Container(
               //color: Colors.black,
               padding: EdgeInsets.only(
@@ -109,6 +131,7 @@ class SignUp extends StatelessWidget {
                   AuthenticationForm(
                     register: true,
                     submit: submit,
+                    loading: loading,
                   ),
                 ],
               ),

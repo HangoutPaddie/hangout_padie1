@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/screens/locate_now.dart';
 
-class HomeSections extends StatelessWidget {
+class EventSection extends StatelessWidget {
   List list;
-  HomeSections({required this.list});
+   EventSection({required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +17,18 @@ class HomeSections extends StatelessWidget {
             itemCount: list.length,
             itemBuilder: (_, index) {
               return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      fullscreenDialog: true,
-                      builder: (_) => LocateNow(
-                        latitude: list[index].latitude,
-                        longitude: list[index].longitude,
-                        address: list[index].text,
-                      ),
-                    ),
-                  );
-                },
+                // onTap: () {
+                //   Navigator.of(context).push(
+                //     MaterialPageRoute(
+                //       fullscreenDialog: true,
+                //       builder: (_) => LocateNow(
+                //         latitude: list[index].latitude,
+                //         longitude: list[index].longitude,
+                //         address: list[index].text,
+                //       ),
+                //     ),
+                //   );
+                // },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
                   height: 150,
@@ -56,29 +55,12 @@ class HomeSections extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            list[index].location,
+                            list[index].name,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 16),
                           ),
-                          Text(list[index].State),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(5, (i) {
-                              return Icon(
-                                Icons.star,
-                                size: 15,
-                                color: list[index].rating <= i
-                                    ? Colors.grey[300]
-                                    : Color(0xffFFC810),
-                                //margin: EdgeInsets.symmetric(
-                                //   horizontal: 10),
-                              );
-
-                              // buildRating(kTopHangoutSpots[index]
-                              //     .rating
-                              //     .round());
-                            }),
-                          )
+                          Text(list[index].address),
+                          
                         ]),
                       ),
                     ],

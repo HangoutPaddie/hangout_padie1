@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/screens/locate_now.dart';
 
-class HomeSections extends StatelessWidget {
+class CategoriesSection extends StatelessWidget {
   List list;
-  HomeSections({required this.list});
+   CategoriesSection({required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +17,18 @@ class HomeSections extends StatelessWidget {
             itemCount: list.length,
             itemBuilder: (_, index) {
               return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      fullscreenDialog: true,
-                      builder: (_) => LocateNow(
-                        latitude: list[index].latitude,
-                        longitude: list[index].longitude,
-                        address: list[index].text,
-                      ),
-                    ),
-                  );
-                },
+                // onTap: () {
+                //   Navigator.of(context).push(
+                //     MaterialPageRoute(
+                //       fullscreenDialog: true,
+                //       builder: (_) => LocateNow(
+                //         latitude: list[index].latitude,
+                //         longitude: list[index].longitude,
+                //         address: list[index].text,
+                //       ),
+                //     ),
+                //   );
+                // },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
                   height: 150,
