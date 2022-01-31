@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hangout_padie/screens/onboarding.dart';
+import './welcome.dart';
 
 class Splash extends StatefulWidget {
   static String id = 'Splash';
@@ -12,7 +14,11 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   Future onBoarding() async {
     await Future.delayed(Duration(seconds: 5));
-    return await Navigator.of(context).pushReplacementNamed(Onboarding.id);
+    return await Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) => Welcome(),
+      ),
+    );
   }
 
   @override
@@ -26,6 +32,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/background_image.png'),

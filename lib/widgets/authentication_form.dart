@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hangout_padie/constants.dart';
-import 'package:hangout_padie/screens/login.dart';
-import 'package:hangout_padie/screens/sign_up.dart';
+import 'package:hangout_padie/screens/authentication/login.dart';
+import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import '../screens/welcome.dart';
 import './registration_botton.dart';
 

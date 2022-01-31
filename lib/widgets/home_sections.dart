@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/screens/locate_now.dart';
+import 'package:hangout_padie/screens/location/locate_now.dart';
 
 class HomeSections extends StatelessWidget {
   List list;

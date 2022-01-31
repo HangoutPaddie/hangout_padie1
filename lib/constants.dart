@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hangout_padie/model/category.dart';
 import 'package:hangout_padie/model/event.dart';
-import 'package:hangout_padie/screens/art_galleries.dart';
-import 'package:hangout_padie/screens/bars.dart';
-import 'package:hangout_padie/screens/cafes.dart';
-import 'package:hangout_padie/screens/beach.dart';
-import 'package:hangout_padie/screens/events.dart';
-import 'package:hangout_padie/screens/lounges.dart';
-import 'package:hangout_padie/screens/restaurants.dart';
+import 'package:hangout_padie/screens/categories/art_galleries.dart';
+import 'package:hangout_padie/screens/categories/bars.dart';
+import 'package:hangout_padie/screens/categories/cafes.dart';
+import 'package:hangout_padie/screens/categories/beach.dart';
+import 'package:hangout_padie/screens/events/events.dart';
+import 'package:hangout_padie/screens/categories/lounges.dart';
+import 'package:hangout_padie/screens/categories/restaurants.dart';
 import './model/onboarding_model.dart';
 import './model/top_hangout_spots.dart';
 import './model/event.dart';
@@ -171,3 +171,9 @@ var kHomeHeadersStyle = TextStyle(fontSize: 18, color: Color(0xff110201));
 var kHomeSectionHeaderStyle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 var kTextFieldTitleStyle = TextStyle(fontSize: 13, color: Colors.white);
+
+List kLocations = [
+  'Lagos',
+  'Abuja',
+  'Port Harcourt',
+];
