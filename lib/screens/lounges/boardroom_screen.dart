@@ -20,11 +20,11 @@ class _BoardroomScreenState extends State<BoardroomScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 10,
+            vertical: 0,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const CustomHeader(),
               CustomBodyText(
@@ -49,7 +49,7 @@ class _BoardroomScreenState extends State<BoardroomScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomNavBar(),
+      //bottomNavigationBar: const CustomNavBar(),
     );
   }
 }

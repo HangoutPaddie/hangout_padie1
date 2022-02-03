@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hangout_padie/screens/changes_password.dart';
+import 'package:hangout_padie/screens/edit_profile.dart';
 import 'package:hangout_padie/widgets/tab_submit_button.dart';
 import '../model/user_model.dart';
 import '../screens/bottom_nav_screens/booking.dart';
@@ -54,9 +55,7 @@ class _WelcomeState extends State<Welcome> {
       //   backgroundColor: Colors.transparent,
       //   elevation: 0,
       // ),
-      body: SingleChildScrollView(
-        child: screens[currentIndex],
-      ),
+      body: screens[currentIndex],
       bottomNavigationBar: CustomBottomNavigationBar(
         index: currentIndex,
         onTap: onTap,
@@ -66,27 +65,37 @@ class _WelcomeState extends State<Welcome> {
           children: [
             // DrawerHeader()
 
-            ListTile(
-              leading: IconButton(
-                icon: Icon(Icons.close),
+            Container(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                icon: const Icon(Icons.highlight_remove),
                 onPressed: Navigator.of(context).pop,
               ),
             ),
+
             ListTile(
-              leading: FaIcon(FontAwesomeIcons.locationArrow),
-              title: Text(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed(Editprofile.id);
+              },
+              leading: const FaIcon(Icons.location_on_outlined),
+              title: const Text(
                 'Edit Profle',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
             ),
             ListTile(
-              leading: FaIcon(Icons.password),
-              title: Text(
-                'Changes Password',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-              ),
-              onTap: () => Navigator.of(context).pushNamed(ChangePassword.id),
-            ),
+                leading: FaIcon(
+                  Icons.settings_input_composite_outlined,
+                ),
+                title: Text(
+                  'Changes Password',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed(ChangePassword.id);
+                }),
             SizedBox(
               height: 20,
             ),

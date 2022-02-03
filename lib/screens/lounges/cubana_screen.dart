@@ -66,6 +66,7 @@ class _CubanaScreenState extends State<CubanaScreen> {
                       children: [
                         InkWell(
                           onTap: () {
+                            Navigator.of(context).pop();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => const LocationScreen(),
@@ -98,6 +99,7 @@ class _CubanaScreenState extends State<CubanaScreen> {
                         ),
                         InkWell(
                           onTap: () {
+                            Navigator.of(context).pop();
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => const MainMenuScreen(),
@@ -196,7 +198,7 @@ class _CubanaScreenState extends State<CubanaScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomNavBar(),
+      //bottomNavigationBar: const CustomNavBar(),
     );
   }
 }

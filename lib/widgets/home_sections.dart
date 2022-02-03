@@ -44,42 +44,41 @@ class HomeSections extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Expanded(child: SizedBox()),
-                      Container(
-                        height: 70,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Column(children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            list[index].location,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                          Text(list[index].State),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(5, (i) {
-                              return Icon(
-                                Icons.star,
-                                size: 15,
-                                color: list[index].rating <= i
-                                    ? Colors.grey[300]
-                                    : Color(0xffFFC810),
-                                //margin: EdgeInsets.symmetric(
-                                //   horizontal: 10),
-                              );
+                      Expanded(flex: 2, child: SizedBox()),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white70,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Column(children: [
+                            Text(
+                              list[index].location,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            Text(list[index].State),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(5, (i) {
+                                return Icon(
+                                  Icons.star,
+                                  size: 15,
+                                  color: list[index].rating <= i
+                                      ? Colors.grey[300]
+                                      : Color(0xffFFC810),
+                                  //margin: EdgeInsets.symmetric(
+                                  //   horizontal: 10),
+                                );
 
-                              // buildRating(kTopHangoutSpots[index]
-                              //     .rating
-                              //     .round());
-                            }),
-                          )
-                        ]),
+                                // buildRating(kTopHangoutSpots[index]
+                                //     .rating
+                                //     .round());
+                              }),
+                            )
+                          ]),
+                        ),
                       ),
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import 'package:hangout_padie/screens/onboarding.dart';
 import './welcome.dart';
 
@@ -39,16 +40,29 @@ class _SplashState extends State<Splash> {
             fit: BoxFit.cover,
           ),
 
-          color: Colors.black,
-          backgroundBlendMode: BlendMode.multiply,
+          // color: Colors.black,
+          // backgroundBlendMode: BlendMode.multiply,
           //colorFilter:,
         ),
-        child: Center(
-            child: Container(
-          child: Image(
-            image: AssetImage('assets/images/logo.png'),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomCenter,
+              colors: [
+                Colors.orange.withOpacity(0.1),
+                Colors.orange.withOpacity(0.1)
+              ],
+              stops: [0.0, 1.0],
+            ),
           ),
-        )),
+          child: Center(
+              child: Container(
+            child: Image(
+              image: AssetImage('assets/images/logo.png'),
+            ),
+          )),
+        ),
       ),
     );
   }

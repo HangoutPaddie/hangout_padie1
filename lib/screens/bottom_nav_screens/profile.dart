@@ -6,7 +6,12 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      padding: EdgeInsets.only(left: 30, top: 50, right: 30, bottom: 15),
+      padding: EdgeInsets.only(
+        left: 15,
+        top: MediaQuery.of(context).size.height * 0.05,
+        right: 15,
+        bottom: MediaQuery.of(context).size.height * 0.02,
+      ),
       child: Column(
         children: [
           Container(

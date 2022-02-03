@@ -17,7 +17,12 @@ class _BookingState extends State<Booking> {
       //height: MediaQuery.of(context).size.height * 1,
       width: double.infinity,
       child: Padding(
-        padding: EdgeInsets.only(left: 30, top: 50, right: 30, bottom: 15),
+        padding: EdgeInsets.only(
+          left: 15,
+          top: MediaQuery.of(context).size.height * 0.05,
+          right: 15,
+          bottom: MediaQuery.of(context).size.height * 0.02,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -59,8 +64,13 @@ class _BookingState extends State<Booking> {
                             borderRadius: BorderRadius.circular(15),
                             elevation: 5,
                             child: RadioListTile<String>(
+                              dense: true,
+                              tileColor: Color(0XFFEFEDEA),
                               activeColor: Color(0XFFFF5403),
                               groupValue: radioGroupValue,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
                               value: kLocations[index],
                               onChanged: (value) {
                                 setState(() {

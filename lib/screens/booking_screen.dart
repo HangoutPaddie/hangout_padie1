@@ -35,6 +35,7 @@ class _BookingScreenState extends State<BookingScreen> {
         context: context,
         barrierDismissible: false,
         builder: (_) => AlertDialog(
+          insetPadding: EdgeInsets.zero,
           content: Container(
             padding: const EdgeInsets.all(3),
             //color: Colors.green,
@@ -55,25 +56,25 @@ class _BookingScreenState extends State<BookingScreen> {
                     ),
                   ],
                 ),
-                Image.asset('assets/happy_in_love.png'),
+                Image.asset('assets/images/happy_in_love.png'),
                 const SizedBox(
                   height: 15,
                 ),
                 const Text(
                   'Booking Successful',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 13,
                 ),
                 const Text(
                   'Your booking details has been sent to your mail',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 19,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -389,7 +390,7 @@ class _BookingScreenState extends State<BookingScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomNavBar(),
+      //bottomNavigationBar: const CustomNavBar(),
     );
   }
 }

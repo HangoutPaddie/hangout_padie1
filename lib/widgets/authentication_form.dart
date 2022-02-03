@@ -89,26 +89,27 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 height: 5,
               ),
             if (widget.register)
-              Material(
-                elevation: 5,
-                borderRadius: BorderRadius.circular(15),
-                //color: Colors.white,
-                child: TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.name,
-                  onSaved: (newValue) => fName = newValue!,
-                  validator: (value) =>
-                      value!.isEmpty ? 'Enter First Name' : null,
-                  controller: fNameController,
-                  style: TextStyle(fontSize: 18),
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.name,
+                onSaved: (newValue) => fName = newValue!,
+                validator: (value) =>
+                    value!.isEmpty ? 'Enter First Name' : null,
+                controller: fNameController,
+                style: const TextStyle(fontSize: 18),
+                decoration: const InputDecoration(
+                  isDense: true,
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 ),
               ),
             if (widget.register)
-              SizedBox(
+              const SizedBox(
                 height: 23,
               ),
             if (widget.register) Text('Last Name', style: kTextFieldTitleStyle),
@@ -117,21 +118,21 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 height: 5,
               ),
             if (widget.register)
-              Material(
-                elevation: 5,
-                borderRadius: BorderRadius.circular(15),
-                //color: Colors.white,
-                child: TextFormField(
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.name,
-                  validator: (value) =>
-                      value!.isEmpty ? 'Enter Last Name' : null,
-                  controller: lNameController,
-                  style: TextStyle(fontSize: 18),
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.name,
+                validator: (value) => value!.isEmpty ? 'Enter Last Name' : null,
+                controller: lNameController,
+                style: TextStyle(fontSize: 18),
+                decoration: const InputDecoration(
+                  isDense: true,
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 ),
               ),
             if (widget.register)
@@ -145,21 +146,21 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             SizedBox(
               height: 5,
             ),
-            Material(
-              elevation: 5,
-              borderRadius: BorderRadius.circular(15),
-              //color: Colors.white,
-              child: TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
-                validator: (value) => value!.isEmpty ? 'Enter an email' : null,
-                controller: emailController,
-                style: TextStyle(fontSize: 18),
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                ),
+            TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              validator: (value) => value!.isEmpty ? 'Enter an email' : null,
+              controller: emailController,
+              style: TextStyle(fontSize: 18),
+              decoration: const InputDecoration(
+                isDense: true,
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               ),
             ),
             SizedBox(
@@ -172,30 +173,33 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             SizedBox(
               height: 5,
             ),
-            Material(
-              elevation: 5,
-              borderRadius: BorderRadius.circular(15),
-              //color: Colors.white,
-              child: TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.done,
-                controller: passwordController,
-                validator: (value) => value!.isEmpty ? 'Enter password' : null,
-                style: TextStyle(fontSize: 18),
-                obscureText: _passwordVisibility,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _passwordVisibility = !_passwordVisibility;
-                          });
-                        },
-                        child: Icon(_passwordVisibility
-                            ? Icons.visibility
-                            : Icons.visibility_off)),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+            TextFormField(
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.done,
+              controller: passwordController,
+              validator: (value) => value!.isEmpty ? 'Enter password' : null,
+              style: TextStyle(fontSize: 18),
+              obscureText: _passwordVisibility,
+              decoration: InputDecoration(
+                isDense: true,
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _passwordVisibility = !_passwordVisibility;
+                      });
+                    },
+                    child: Icon(
+                      !_passwordVisibility
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    )),
               ),
             ),
             SizedBox(
@@ -217,22 +221,30 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 ? Container(
                     alignment: Alignment.center,
                     child: CircularProgressIndicator())
-                : GestureDetector(
-                    onTap: submit,
-                    child: Material(
-                      elevation: 5,
-                      borderRadius: BorderRadius.circular(15),
-                      color: Color(0XFFFF5403),
-                      child: Container(
-                        height: 50,
-                        width: double.infinity,
-                        child: Center(
-                          child: Text(
-                            widget.register ? 'SIGN UP' : 'LOGIN',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+                : Center(
+                    child: ElevatedButton(
+                      onPressed: submit,
+                      child: Text(
+                        widget.register ? 'SIGN UP' : 'LOGIN',
                       ),
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          primary: Color(0XFFFF5403),
+                          onPrimary: Colors.white,
+                          fixedSize: Size(
+                              MediaQuery.of(context).size.width * 0.7, 40)),
+
+                      // child: Container(
+                      //   height: 50,
+                      //   width: double.infinity,
+                      //   child: Center(
+                      //     child: Text(
+                      //       widget.register ? 'SIGN UP' : 'LOGIN',
+                      //       style: TextStyle(color: Colors.white),
+                      //     ),
+                      //   ),
+                      // ),
                     ),
                   ),
             SizedBox(
@@ -273,14 +285,18 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                 )),
             widget.register ? SizedBox(height: 20) : SizedBox(height: 40),
             RegisterButton(
-              title: Text('SIGN UP WITH GOOGLE'),
+              title: Text(widget.register
+                  ? 'SIGN UP WITH GOOGLE'
+                  : 'CONTINUE WITH GOOGLE'),
               icon: FontAwesomeIcons.google,
             ),
             SizedBox(
               height: 15,
             ),
             RegisterButton(
-              title: Text('SIGN UP WITH APPLE'),
+              title: Text(widget.register
+                  ? 'SIGN UP WITH APPLE'
+                  : 'CONTINUE WITH APPLE'),
               icon: FontAwesomeIcons.apple,
             ),
           ]),

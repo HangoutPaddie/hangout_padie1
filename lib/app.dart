@@ -5,6 +5,7 @@ import 'package:hangout_padie/screens/categories/bars.dart';
 import 'package:hangout_padie/screens/categories/cafes.dart';
 import 'package:hangout_padie/screens/categories/categories.dart';
 import 'package:hangout_padie/screens/categories/beach.dart';
+import 'package:hangout_padie/screens/edit_profile.dart';
 import 'package:hangout_padie/screens/location/locate_now.dart';
 import 'package:hangout_padie/screens/categories/lounges.dart';
 import 'package:hangout_padie/screens/categories/restaurants.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         BoardroomScreen.id: (context) => BoardroomScreen(),
         MainMenuScreen.id: (context) => MainMenuScreen(),
         MenuDetailsScreen.id: (context) => MenuDetailsScreen(),
+        Editprofile.id: (context) => Editprofile(),
       },
     );
   }

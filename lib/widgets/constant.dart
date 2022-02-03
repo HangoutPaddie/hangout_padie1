@@ -28,30 +28,30 @@ final Set<Marker> _kGoogleMarkers = {
 final List<LagosLounge> _cubanaList = [
   LagosLounge(
     loungeName: 'Cubana',
-    loungeImageUrl: 'assets/sailors_lounge_main.png',
+    loungeImageUrl: 'assets/images/sailors_lounge_main.png',
   ),
   LagosLounge(
     loungeName: 'Cubana',
-    loungeImageUrl: 'assets/escape_night_club_main.png',
+    loungeImageUrl: 'assets/images/escape_night_club_main.png',
   ),
   LagosLounge(
     loungeName: 'Cubana',
-    loungeImageUrl: 'assets/art_cafe_main.png',
+    loungeImageUrl: 'assets/images/art_cafe_main.png',
   ),
 ];
 
 final List<LagosLounge> _boardroomList = [
   LagosLounge(
     loungeName: 'Boardroom',
-    loungeImageUrl: 'assets/boardroom_main.png',
+    loungeImageUrl: 'assets/images/boardroom_main.png',
   ),
   LagosLounge(
     loungeName: 'Boardroom',
-    loungeImageUrl: 'assets/escape_night_club_main.png',
+    loungeImageUrl: 'assets/images/escape_night_club_main.png',
   ),
   LagosLounge(
     loungeName: 'Boardroom',
-    loungeImageUrl: 'assets/art_cafe_main.png',
+    loungeImageUrl: 'assets/images/art_cafe_main.png',
   ),
 ];
 
@@ -62,9 +62,9 @@ final MenuList _menuImages = MenuList(
     'Specials',
   ],
   menuCategoryImages: [
-    'assets/cubana_drink_main.png',
-    'assets/cubana_meal.png',
-    'assets/cubana_special_meal.png',
+    'assets/images/cubana_drink_main.png',
+    'assets/images/cubana_meal.png',
+    'assets/images/cubana_special_meal.png',
   ],
   menuSubcategoryNames: CubanaMenuNames(
     drinksCategoryNames: [
@@ -80,16 +80,16 @@ final MenuList _menuImages = MenuList(
   ),
   menuSubcategoryImages: CubanaMenuImages(
     alcoholImageUrl: [
-      'assets/vodka_main.png',
-      'assets/beer.png',
+      'assets/images/vodka_main.png',
+      'assets/images/beer.png',
     ],
     softdrinksImageUrl: [
-      'assets/soft_drinks.png',
-      'assets/juice.png',
+      'assets/images/soft_drinks.png',
+      'assets/images/juice.png',
     ],
     cocktailImageUrl: [
-      'assets/cocktail.png',
-      'assets/special_drinks.png',
+      'assets/images/cocktail.png',
+      'assets/images/special_drinks.png',
     ],
     mealCategoryImageUrls: [],
     specialsCategoryImageUrls: [],

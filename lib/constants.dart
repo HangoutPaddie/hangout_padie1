@@ -164,7 +164,7 @@ List kNavMenue = [
   Icons.home_rounded,
   Icons.call_outlined,
   Icons.calendar_today_outlined,
-  Icons.account_box_outlined
+  Icons.person
 ];
 
 var kHomeHeadersStyle = TextStyle(fontSize: 18, color: Color(0xff110201));

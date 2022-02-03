@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class EventSection extends StatelessWidget {
   List list;
-   EventSection({required this.list});
+  EventSection({required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class EventSection extends StatelessWidget {
                         height: 70,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.white70,
                             borderRadius: BorderRadius.circular(15)),
                         child: Column(children: [
                           SizedBox(
@@ -60,7 +60,6 @@ class EventSection extends StatelessWidget {
                                 fontWeight: FontWeight.bold, fontSize: 16),
                           ),
                           Text(list[index].address),
-                          
                         ]),
                       ),
                     ],
