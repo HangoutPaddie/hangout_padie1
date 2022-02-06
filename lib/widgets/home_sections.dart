@@ -19,16 +19,16 @@ class HomeSections extends StatelessWidget {
             itemBuilder: (_, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      fullscreenDialog: true,
-                      builder: (_) => LocateNow(
-                        latitude: list[index].latitude,
-                        longitude: list[index].longitude,
-                        address: list[index].text,
-                      ),
-                    ),
-                  );
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     fullscreenDialog: true,
+                  //     builder: (_) => LocateNow(
+                  //       latitude: list[index].latitude,
+                  //       longitude: list[index].longitude,
+                  //       address: list[index].text,
+                  //     ),
+                  //   ),
+                  // );
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: 20),

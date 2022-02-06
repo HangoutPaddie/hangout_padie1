@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import 'package:hangout_padie/screens/booking_screen.dart';
 import 'package:hangout_padie/screens/menu_screens/cubana_menu/main_menu.dart';
 import 'package:hangout_padie/widgets/constant.dart';
@@ -149,9 +150,10 @@ class _CubanaScreenState extends State<CubanaScreen> {
                               ),
                             ),
                             onPressed: () {
+                              Navigator.of(context).pop();
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => const BookingScreen(),
+                                  builder: (context) => SignUp(),
                                 ),
                               );
                             },

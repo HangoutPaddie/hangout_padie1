@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
     await Future.delayed(Duration(seconds: 5));
     return await Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => Welcome(),
+        builder: (_) => Onboarding(),
       ),
     );
   }

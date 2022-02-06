@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hangout_padie/constants.dart';
 import 'package:hangout_padie/screens/authentication/sign_up.dart';
+import 'package:hangout_padie/screens/welcome.dart';
 
 import '../widgets/background_container.dart';
 
@@ -32,7 +33,7 @@ class _OnboardingState extends State<Onboarding> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -44,8 +45,8 @@ class _OnboardingState extends State<Onboarding> {
           ),
           actions: [
             GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushReplacementNamed(SignUp.id),
+                onTap: () => Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => Welcome())),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
@@ -140,9 +141,10 @@ class _OnboardingState extends State<Onboarding> {
                                             fontSize: 15),
                                       ))
                                   : GestureDetector(
-                                      onTap: () =>
-                                          Navigator.pushReplacementNamed(
-                                              context, SignUp.id),
+                                      onTap: () => Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) => Welcome())),
                                       child: Material(
                                         elevation: 5,
                                         borderRadius: BorderRadius.circular(15),

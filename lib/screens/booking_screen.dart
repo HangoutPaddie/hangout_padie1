@@ -181,7 +181,7 @@ class _BookingScreenState extends State<BookingScreen> {
                           size: 30,
                         ),
                         onPressed: () {
-                          Navigator.of(context).push(
+                          Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
                               builder: (context) => const CubanaScreen(),
                             ),
