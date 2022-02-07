@@ -2,7 +2,7 @@
     package="com.example.hangout_padie">
     
    <application
-        android:label="hangout_padie"
+        android:label="HangoutPadie"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyDQ-fQxtf5v0G6iz7rEU1Oz3rE24gUmKOU"/>
