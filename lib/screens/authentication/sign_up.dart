@@ -24,46 +24,47 @@ class _SignUpState extends State<SignUp> {
     String password,
     BuildContext ctx,
   ) async {
-    // setState(() {
-    //   loading = true;
-    // });
-    // String url = 'https://api.hangoutpadie.com/register/';
-    // var dio = Dio();
-    // final sendData = {
-    //   'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
-    //   "first_name": fName,
-    //   "last_name": lName,
-    //   "email_address": email,
-    //   "password": password
-    // };
-    // Response response = await dio.post(url, data: sendData);
-    // if (response.statusCode == 201) {
-    //   final body = await response.data;
-    //   String userMail;
-    //   String userFirstName;
-    //   String userLastName;
-    //   print(body);
-    //   userFirstName = body['data']['first_name'];
-    //   userLastName = body['data']['last_name'];
-    //   userMail = body['data']['email_address'];
-    //   UserModel _user = await UserModel(
-    //       userMail: userMail,
-    //       userFirstName: userFirstName,
-    //       userLastName: userLastName);
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/auth/register/';
+    var dio = Dio();
+    final sendData = {
+      'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
+      "first_name": fName,
+      "last_name": lName,
+      "email_address": email,
+      "password": password
+    };
+    Response response = await dio.post(url, data: sendData);
+    if (response.statusCode == 201) {
+      final body = await response.data;
+      String userMail;
+      String userFirstName;
+      String userLastName;
+      print(body);
+      userFirstName = body['data']['first_name'];
+      userLastName = body['data']['last_name'];
+      userMail = body['data']['email_address'];
+      UserModel _user = await UserModel(
+          userMail: userMail,
+          userFirstName: userFirstName,
+          userLastName: userLastName);
     Navigator.of(ctx).pushReplacement(
         MaterialPageRoute(builder: (_) => const BookingScreen()));
-    // setState(() {
-    //   loading = false;
-    // });
-    //print(body['status']);
-    // UserModel user = UserModel(userMail: body[], userPassword: userPassword)
+    setState(() {
+      loading = false;
+    });
+    print(body['status']);
+    //UserModel user = UserModel(userMail: body[], userPassword: userPassword)
 
-    // } else {
-    //   print(response.statusCode);
-    //   setState(() {
-    //     loading = false;
-    //   });
-    // }
+    } else {
+      print(response.statusCode);
+      setState(() {
+
+        loading = false;
+      });
+    }
     Navigator.of(ctx).pushReplacement(
         MaterialPageRoute(builder: (_) => const BookingScreen()));
   }

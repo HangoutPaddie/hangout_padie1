@@ -24,30 +24,30 @@ class _LoginState extends State<Login> {
     String password,
     BuildContext ctx,
   ) async {
-    // setState(() {
-    //   loading = true;
-    // });
-    // String url = 'https://api.hangoutpadie.com/login/';
-    // var dio = Dio();
-    // final sendData = {
-    //   'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
-    //   "email_address": email,
-    //   "password": password
-    // };
-    // Response response = await dio.post(url, data: sendData);
-    // if (response.statusCode == 200) {
-    //   final body = response.data;
-    //   //print(body);
-    //   String userMail;
-    //   String userFirstName;
-    //   String userLastName;
-    //   userFirstName = body['data']['user_details']['first_name'];
-    //   userLastName = body['data']['user_details']['last_name'];
-    //   userMail = body['data']['user_details']['email_address'];
-    //   UserModel _user = await UserModel(
-    //       userMail: userMail,
-    //       userFirstName: userFirstName,
-    //       userLastName: userLastName);
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/auth/login/';
+    var dio = Dio();
+    final sendData = {
+      'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
+      "email_address": email,
+      "password": password
+    };
+    Response response = await dio.post(url, data: sendData);
+    if (response.statusCode == 200) {
+      final body = response.data;
+      //print(body);
+      String userMail;
+      String userFirstName;
+      String userLastName;
+      userFirstName = body['data']['user_details']['first_name'];
+      userLastName = body['data']['user_details']['last_name'];
+      userMail = body['data']['user_details']['email_address'];
+      UserModel _user = await UserModel(
+          userMail: userMail,
+          userFirstName: userFirstName,
+          userLastName: userLastName);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('You are successfully logged in'),
@@ -63,30 +63,15 @@ class _LoginState extends State<Login> {
           ,
         ),
       );
-    //   setState(() {
-    //     loading = false;
-    //   });
-    // } else {
-    //   print(response.statusCode);
-    //   setState(() {
-    //     loading = false;
-    //   });
-   // }
-
-    //dio.post(path)
-
-// var request = http.Request('POST', Uri.parse('http://api.hangoutpadie.com/register'));
-// request.body = '''{\r\n    "api_key": "{api_key}",\r\n    "first_name": "John",\r\n    "last_name": "Doe",\r\n    "email_address": "example@mail.com",\r\n    "password": "123456789"\r\n}''';
-// request.headers.addAll(headers);
-
-// http.StreamedResponse response = await request.send();
-
-// if (response.statusCode == 200) {
-//   print(await response.stream.bytesToString());
-// }
-// else {
-//   print(response.reasonPhrase);
-// }
+      setState(() {
+        loading = false;
+      });
+    } else {
+      print(response.statusCode);
+      setState(() {
+        loading = false;
+      });
+   }
   }
 
   @override
@@ -128,14 +113,14 @@ class _LoginState extends State<Login> {
                   ),
                   child: Column(
                     children: [
-                      Text(
+                    const  Text(
                         'WELCOME BACK',
                         style: TextStyle(
                             fontSize: 21,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
+                     const SizedBox(
                         height: 30,
                       ),
                       AuthenticationForm(
@@ -144,7 +129,7 @@ class _LoginState extends State<Login> {
                         loading: loading,
                         resetPassword: resetPassword,
                       ),
-                      SizedBox(
+                     const SizedBox(
                         height: 30,
                       ),
                     ],
@@ -161,38 +146,38 @@ class _LoginState extends State<Login> {
   resetPassword(String fName, String lName, String email, String passwword,
       BuildContext context) async {
     FocusScope.of(context).unfocus();
-    // setState(() {
-    //   loading = true;
-    // });
-    // String url = 'https://api.hangoutpadie.com/reset_password/';
-    // var dio = Dio();
-    // final sendData = {
-    //   'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
-    //   "email_address": email,
-    // };
-    // Response response = await dio.post(url, data: sendData);
-    // if (response.statusCode == 200) {
-    //   final body = response.data;
+    setState(() {
+      loading = true;
+    });
+    String url = 'https://api.hangoutpadie.com/auth/reset_password/';
+    var dio = Dio();
+    final sendData = {
+      'api_key': 'HangOutPadie_Aiwxn3r8NYb899Yu3SJAuiwe37GG7878erfG7',
+      "email_address": email,
+    };
+    Response response = await dio.post(url, data: sendData);
+    if (response.statusCode == 200) {
+      final body = response.data;
 
-    //   print(body['status']);
+      print(body['status']);
 
-    //   setState(() {
-    //     loading = false;
-    //   });
-    //   String text = 'some text';
-    //   //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: Text('Kindly check $email for a reset password link'),
-    //       duration: Duration(seconds: 5),
-    //       //action: SnackBarAction(label: 'OK',onPressed: () => ,),
-    //     ),
-    //   );
-    // } else {
-    //   print(response.statusCode);
-    //   setState(() {
-    //     loading = false;
-    //   });
-    // }
+      setState(() {
+        loading = false;
+      });
+      String text = 'some text';
+      //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Kindly check $email for a reset password link'),
+          duration: Duration(seconds: 5),
+          //action: SnackBarAction(label: 'OK',onPressed: () => ,),
+        ),
+      );
+    } else {
+      print(response.statusCode);
+      setState(() {
+        loading = false;
+      });
+    }
   }
 }
