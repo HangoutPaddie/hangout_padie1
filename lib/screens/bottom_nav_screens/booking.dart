@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../location/my_location.dart';
-import '../../widgets/tab_submit_button.dart';
+//import '../location/my_location.dart';
+//import '../../widgets/tab_submit_button.dart';
 
 class Booking extends StatefulWidget {
   @override
@@ -98,9 +98,9 @@ class _BookingState extends State<Booking> {
             SizedBox(
               height: 50,
             ),
-            TabSubmitButton(
+           /* TabSubmitButton(
               title: 'BOOK NOW',
-            ),
+            ),*/
           ],
         ),
       ),

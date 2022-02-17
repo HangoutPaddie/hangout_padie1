@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/screens/authentication/sign_up.dart';
+//import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import 'package:hangout_padie/screens/booking_screen.dart';
-import 'package:hangout_padie/screens/menu_screens/cubana_menu/main_menu.dart';
-import 'package:hangout_padie/widgets/constant.dart';
-import 'package:hangout_padie/widgets/custom_body_text.dart';
+//import 'package:hangout_padie/screens/menu_screens/cubana_menu/main_menu.dart';
 import 'package:hangout_padie/widgets/custom_navbar.dart';
+import 'package:hangout_padie/widgets/export.dart';
+import 'package:hangout_padie/screens/map_location.dart';
+import 'package:hangout_padie/screens/menu/cubana_menu/main_menu.dart';
 
-import '../location/location_screen.dart';
 
 class CubanaScreen extends StatefulWidget {
   static String id = 'CubanaScreen';
@@ -69,7 +69,7 @@ class _CubanaScreenState extends State<CubanaScreen> {
                           onTap: () {
                             Navigator.of(context).pop();
                             Navigator.of(context).push(
-                              MaterialPageRoute(
+                               MaterialPageRoute(
                                 builder: (context) => const LocationScreen(),
                               ),
                             );
@@ -151,11 +151,11 @@ class _CubanaScreenState extends State<CubanaScreen> {
                             ),
                             onPressed: () {
                               Navigator.of(context).pop();
-                              Navigator.of(context).push(
+                             /* Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => SignUp(),
                                 ),
-                              );
+                              ); */
                             },
                           ),
                         ),

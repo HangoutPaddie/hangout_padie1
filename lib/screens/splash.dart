@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hangout_padie/screens/authentication/sign_up.dart';
+// import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import 'package:hangout_padie/screens/onboarding.dart';
 import './welcome.dart';
 

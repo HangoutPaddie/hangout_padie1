@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hangout_padie/constants.dart';
-import 'package:hangout_padie/screens/authentication/login.dart';
-import 'package:hangout_padie/screens/authentication/sign_up.dart';
+//import 'package:hangout_padie/screens/authentication/login.dart';
+//import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import '../screens/welcome.dart';
 import './registration_botton.dart';
 
@@ -255,8 +255,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                     Text('Already a user? Login ',
                         style: TextStyle(color: Colors.white)),
                     GestureDetector(
-                        onTap: () =>
-                            Navigator.pushReplacementNamed(context, Login.id),
+                        onTap: () {},
+                            //Navigator.pushReplacementNamed(context, Login.id),
                         child: Text(
                           'here',
                           style: TextStyle(color: Color(0XFFFF5403)),
@@ -266,8 +266,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                     Text(' New user? Sign Up ',
                         style: TextStyle(color: Colors.white)),
                     GestureDetector(
-                        onTap: () =>
-                            Navigator.pushReplacementNamed(context, SignUp.id),
+                        onTap: () {},
+                            //Navigator.pushReplacementNamed(context, SignUp.id),
                         child: Text(
                           'here',
                           style: TextStyle(color: Color(0XFFFF5403)),

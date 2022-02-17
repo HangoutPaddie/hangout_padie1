@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hangout_padie/widgets/home_sections.dart';
 
 import '../../constants.dart';
-import '../categories/categories.dart';
-import '../events/events.dart';
-import '../location/select_location.dart';
+//import '../categories/categories.dart';
+//import '../events/events.dart';
+//import '../location/select_location.dart';
 import '../onboarding.dart';
 
 class Home extends StatelessWidget {
@@ -35,8 +35,8 @@ class Home extends StatelessWidget {
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                   GestureDetector(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed(SelectLocation.id),
+                    onTap: () {},
+                        //Navigator.of(context).pushNamed(SelectLocation.id),
                     child: IconButton(
                       onPressed: () {
                         Navigator.of(context)
@@ -61,22 +61,24 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GestureDetector(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed(SelectLocation.id),
+                    onTap: () {},
+                        //Navigator.of(context).pushNamed(SelectLocation.id),
                     child: Text(
                       'LOCATION',
                       style: kHomeHeadersStyle,
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed(Events.id),
+                    onTap: () {},
+                        //Navigator.of(context).pushNamed(Events.id),
                     child: Text(
                       'EVENT',
                       style: kHomeHeadersStyle,
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamed(Categories.id),
+                    onTap: () {},
+                        //Navigator.of(context).pushNamed(Categories.id),
                     child: Text(
                       'CATEGORIES',
                       style: kHomeHeadersStyle,

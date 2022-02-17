@@ -4,7 +4,7 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hangout_padie/constants.dart';
-import 'package:hangout_padie/screens/authentication/sign_up.dart';
+// import 'package:hangout_padie/screens/authentication/sign_up.dart';
 import 'package:hangout_padie/screens/welcome.dart';
 
 import '../widgets/background_container.dart';

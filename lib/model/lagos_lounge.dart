@@ -5,6 +5,6 @@ class LagosLounge{
   LagosLounge({
     required this.loungeName,
     required this.loungeImageUrl,
-});
+  });
 
 }

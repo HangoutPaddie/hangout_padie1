@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../widgets/tab_submit_button.dart';
+//import '../../widgets/tab_submit_button.dart';
 
 class Contact extends StatelessWidget {
   const Contact({Key? key}) : super(key: key);
@@ -76,9 +76,9 @@ class Contact extends StatelessWidget {
               style: TextStyle(color: Color(0XFFF49610), fontSize: 18),
             ),
             Expanded(flex: 3, child: SizedBox()),
-            TabSubmitButton(
+            /* TabSubmitButton(
               title: 'CHAT NOW',
-            ),
+            ),*/
             Expanded(flex: 1, child: SizedBox()),
           ],
         ),
