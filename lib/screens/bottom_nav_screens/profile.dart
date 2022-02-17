@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/widgets/tab_submit_button.dart';
+//import 'package:hangout_padie/widgets/tab_submit_button.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -70,9 +70,9 @@ class Profile extends StatelessWidget {
             ),
           ),
           Expanded(child: SizedBox()),
-          TabSubmitButton(
+          /*TabSubmitButton(
             title: 'BOOK NOW',
-          ),
+          ),*/
           Expanded(child: SizedBox()),
         ],
       ),

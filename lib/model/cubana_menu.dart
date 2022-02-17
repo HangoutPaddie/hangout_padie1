@@ -1,41 +1,25 @@
+
 class MenuList{
-  List<String> menuCategoryNames;
-  List<String> menuCategoryImages;
-  CubanaMenuNames menuSubcategoryNames;
-  CubanaMenuImages menuSubcategoryImages;
+  String menuNames;
+  String menuImages;
+  List<SubCategory> subcategoryItems;
 
   MenuList({
-    required this.menuCategoryNames,
-    required this.menuCategoryImages,
-    required this.menuSubcategoryNames,
-    required this.menuSubcategoryImages,
+    required this.menuNames,
+    required this.menuImages,
+    required this.subcategoryItems,
   });
 }
 
-class CubanaMenuNames{
-  List<String> drinksCategoryNames;
-  List<String> mealCategoryNames;
-  List<String> specialsCategoryNames;
+class SubCategory{
+  String subcategoryName;
+  List<String> subcategoryImage;
 
-  CubanaMenuNames({
-    required this.drinksCategoryNames,
-    required this.mealCategoryNames,
-    required this.specialsCategoryNames,
+  SubCategory({
+    required this.subcategoryName,
+    required this.subcategoryImage,
   });
 }
 
-class CubanaMenuImages{
-  List<String> alcoholImageUrl;
-  List<String> softdrinksImageUrl;
-  List<String> cocktailImageUrl;
-  List<String> mealCategoryImageUrls;
-  List<String> specialsCategoryImageUrls;
 
-  CubanaMenuImages({
-    required this.alcoholImageUrl,
-    required this.softdrinksImageUrl,
-    required this.cocktailImageUrl,
-    required this.mealCategoryImageUrls,
-    required this.specialsCategoryImageUrls,
-});
-}
+

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hangout_padie/screens/changes_password.dart';
+// import 'package:hangout_padie/screens/changes_password.dart';
 import 'package:hangout_padie/screens/edit_profile.dart';
-import 'package:hangout_padie/widgets/tab_submit_button.dart';
+// import 'package:hangout_padie/widgets/tab_submit_button.dart';
 import '../model/user_model.dart';
 import '../screens/bottom_nav_screens/booking.dart';
 import '../screens/bottom_nav_screens/contact.dart';
 import '../screens/bottom_nav_screens/home.dart';
 import '../screens/bottom_nav_screens/profile.dart';
 import '../screens/onboarding.dart';
-import '../widgets/custom_bottom_navigation_bar.dart';
+//import '../widgets/custom_bottom_navigation_bar.dart';
 
 class Welcome extends StatefulWidget {
   static String id = 'Welcome';
@@ -56,10 +56,10 @@ class _WelcomeState extends State<Welcome> {
       //   elevation: 0,
       // ),
       body: screens[currentIndex],
-      bottomNavigationBar: CustomBottomNavigationBar(
+      /* bottomNavigationBar: CustomBottomNavigationBar(
         index: currentIndex,
         onTap: onTap,
-      ),
+      ), */
       drawer: Drawer(
         child: ListView(
           children: [
@@ -94,14 +94,14 @@ class _WelcomeState extends State<Welcome> {
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.of(context).pushNamed(ChangePassword.id);
+                  //Navigator.of(context).pushNamed(ChangePassword.id);
                 }),
             SizedBox(
               height: 20,
             ),
             Container(
               width: double.infinity,
-              child: TabSubmitButton(title: 'BOOK NOW'),
+              //child: TabSubmitButton(title: 'BOOK NOW'),
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.4),

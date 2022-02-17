@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hangout_padie/model/category.dart';
 import 'package:hangout_padie/model/event.dart';
+
+/*
 import 'package:hangout_padie/screens/categories/art_galleries.dart';
 import 'package:hangout_padie/screens/categories/bars.dart';
 import 'package:hangout_padie/screens/categories/cafes.dart';
@@ -8,6 +10,8 @@ import 'package:hangout_padie/screens/categories/beach.dart';
 import 'package:hangout_padie/screens/events/events.dart';
 import 'package:hangout_padie/screens/categories/lounges.dart';
 import 'package:hangout_padie/screens/categories/restaurants.dart';
+*/
+
 import './model/onboarding_model.dart';
 import './model/top_hangout_spots.dart';
 import './model/event.dart';
@@ -125,21 +129,21 @@ List<TopHangoutSpots> kRecommendation = [
 ];
 
 List<Category> KCategories = [
-  Category(image: 'assets/images/clubs.png', name: 'BEACH', navPage: Beach.id),
-  Category(image: 'assets/images/bars.png', name: 'BARS', navPage: Bars.id),
-  Category(image: 'assets/images/cafe.png', name: 'CAFE', navPage: Cafes.id),
+  Category(image: 'assets/images/clubs.png', name: 'BEACH', navPage: ''), //Beach.id),
+  Category(image: 'assets/images/bars.png', name: 'BARS', navPage: ''),//Bars.id),
+  Category(image: 'assets/images/cafe.png', name: 'CAFE', navPage: ''), //Cafes.id),
   Category(
       image: 'assets/images/restaurant.png',
       name: 'RESTAURANTS',
-      navPage: Restaurants.id),
+      navPage: ''), //Restaurants.id),
   Category(
       image: 'assets/images/art.png',
       name: 'ART GALLERIES/MUSEUM',
-      navPage: ArtGalleries.id),
+      navPage: ''), //ArtGalleries.id),
   Category(
       image: 'assets/images/sailor\'s_lounge.png',
       name: 'LOUNGES',
-      navPage: Lounges.id)
+      navPage: ''), //Lounges.id)
 ];
 
 List<Event> kCarnival = [

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangout_padie/widgets/tab_submit_button.dart';
+// import 'package:hangout_padie/widgets/tab_submit_button.dart';
 
 class Editprofile extends StatelessWidget {
   static String id = 'EditProfile';
@@ -140,9 +140,9 @@ class Editprofile extends StatelessWidget {
                   ),
                 ),
                 Expanded(child: SizedBox()),
-                TabSubmitButton(
+                /* TabSubmitButton(
                   title: 'UPDATE',
-                ),
+                ), */
                 Expanded(child: SizedBox()),
               ],
             ),
